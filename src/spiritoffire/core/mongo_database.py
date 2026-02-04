@@ -1,6 +1,6 @@
 from typing import List
 
-from app import logger
+from spiritoffire.app import logger
 from pymongo import MongoClient
 from pymongo.database import Database
 
