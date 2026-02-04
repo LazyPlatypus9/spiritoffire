@@ -1,5 +1,5 @@
 [project]
-name = "spirit-of-fire"
+name = "spiritoffire"
 version = "0.1.0"
 description = "Library for common Python scripts"
 readme = "README.md"
