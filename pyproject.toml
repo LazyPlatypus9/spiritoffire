@@ -17,10 +17,11 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = [
-    "src"
+    "lib"
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = [
-    "src/models",
+    "lib/models",
+    "lib/core"
 ]
