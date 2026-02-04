@@ -4,6 +4,7 @@ from spiritoffire.app import logger
 from pymongo import MongoClient
 from pymongo.database import Database
 
+
 class MongoDatabase:
     def __init__(self, username: str, password: str, host: str, port: str):
         self.username = username
@@ -23,10 +24,11 @@ class MongoDatabase:
 
         mongo_uri.append(f"{self.host}:{self.port}")
 
-        return MongoClient(''.join(mongo_uri))
-    
+        self.client = MongoClient("".join(mongo_uri))
+        return self.client
+
     def get_database(self, name: str) -> Database:
         if not self.client:
             self.client = self.get_client()
-        
+
         return self.client[name]
