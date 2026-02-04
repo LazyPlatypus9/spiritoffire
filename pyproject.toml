@@ -1,0 +1,25 @@
+[project]
+name = "spirit-of-fire"
+version = "0.1.0"
+description = "Library for common Python scripts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic",
+    "pydantic-settings",
+    "pytest"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/models",
+]
