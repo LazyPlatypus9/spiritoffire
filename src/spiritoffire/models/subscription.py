@@ -1,4 +1,6 @@
 from pydantic import BaseModel
 
-class Subscription(BaseModel):
+from spiritoffire.models import BaseCollection
+
+class Subscription(BaseCollection):
     target: str
