@@ -17,14 +17,13 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = [
-    "lib"
+    "src"
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = [
-    "lib/models",
-    "lib/core"
+    "src/spiritoffire"
 ]
 
 [tool.hatch.build.targets.wheel.sources]
-"lib" = ""
+"src" = ""
