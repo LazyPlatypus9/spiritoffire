@@ -25,3 +25,6 @@ packages = [
     "lib/models",
     "lib/core"
 ]
+
+[tool.hatch.build.targets.wheel.sources]
+"lib" = ""
