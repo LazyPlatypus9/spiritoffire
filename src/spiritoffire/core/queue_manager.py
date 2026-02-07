@@ -39,7 +39,7 @@ class QueueManager():
                 if item.retry_count > 0:
                     logger.info(f"Attempt {item.retry_count}")
 
-                if datetime.now > item.next_attempt:
+                if datetime.now() > item.next_attempt:
                     # QueueData contains a __call__
                     item()
                 else:
