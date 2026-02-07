@@ -29,10 +29,8 @@ class QueueManager():
                     logger.info("Received StopItem, exiting loop")
                     break
 
-                try:
-                    item = QueueData(**item)
-                except Exception as ex:
-                    logger.error(ex)
+                if not isinstance(item, QueueData):
+                    logger.error(f"Invalid item in queue, expected {type(QueueData)}")
                     continue
 
                 if item.retry_count > item.max_retry:
