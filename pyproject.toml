@@ -1,6 +1,6 @@
 [project]
 name = "spiritoffire"
-version = "0.3.3"
+version = "0.3.4"
 description = "Library for common Python scripts"
 readme = "README.md"
 requires-python = ">=3.12"
