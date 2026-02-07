@@ -15,7 +15,7 @@ class QueueData(BaseModel):
     def __call__(self):
         logger.info("Executing {__class__.__name__}")
         self.worker.on_start()
-        self.worker.task()
+        self.worker.task(self.retry_count)
         self.worker.on_stop()
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
