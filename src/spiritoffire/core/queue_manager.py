@@ -30,7 +30,7 @@ class QueueManager():
                     break
 
                 try:
-                    item = QueueData(item)
+                    item = QueueData(**item)
                 except Exception as ex:
                     logger.error(ex)
                     continue
