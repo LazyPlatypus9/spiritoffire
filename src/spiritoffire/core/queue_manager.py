@@ -1,8 +1,10 @@
+from datetime import datetime
 from queue import Queue
 from threading import Event
 from typing import Optional
 
 from spiritoffire.app import logger
+from spiritoffire.models.queue_data import QueueData
 from spiritoffire.workers.stop_item import StopItem
 
 class QueueManager():
@@ -27,8 +29,19 @@ class QueueManager():
                     logger.info("Received StopItem, exiting loop")
                     break
 
-                if item:
+                try:
+                    item = QueueData(item)
+                except Exception as ex:
+                    logger.error(ex)
+                    continue
+
+                if item.retry_count > item.max_retry:
+                    continue
+
+                if datetime.now > item.next_attempt:
                     # QueueData contains a __call__
                     item()
+                else:
+                    self.queue.put(item)
             except Exception as ex:
                 logger.error(ex)
