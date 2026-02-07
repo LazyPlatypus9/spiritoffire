@@ -13,7 +13,7 @@ class QueueData(BaseModel):
     next_attempt: datetime = datetime.now()
 
     def __call__(self):
-        logger.info("Executing {__class__.__name__}")
+        logger.info(f"Executing {__class__.__name__}, {self.retry_count} previous attempts")
         self.worker.on_start()
         self.worker.task(self.retry_count)
         self.worker.on_stop()
